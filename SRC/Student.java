@@ -23,7 +23,7 @@ public class Student{
 		// method create ID called
 		createID();
 		// printing the information taken and genrated
-		System.out.println("Name: " + name + "\nYear: " + year + "\nStudentID: " + StudentID);
+		// System.out.println("Name: " + name + "\nYear: " + year + "\nStudentID: " + StudentID);
 		enrool();
 	}
         private void createID() {
@@ -48,7 +48,7 @@ public class Student{
 				break;
 			}
 		} while (1 != 0);
-		System.out.println("\nENROLLED IN: " + Courses+"\n");
+		// System.out.println("\nENROLLED IN: " + Courses+"\n");
 		// System.out.println("BALANCE: " + balance);
 
 	}
@@ -67,6 +67,11 @@ public class Student{
 			balance = balance - pay;
 			System.out.println("sry you transaction incomplete due: "+balance);
 		}
+	
+	}
+	public String toString() {
+		return "\n\nName: " + name + "\nYear: " + year + "\nStudent ID: " + StudentID + "\nCourses enroled in: " + Courses
+				+ "\nDues: " + balance;
 	}
 }
 
