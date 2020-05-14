@@ -18,12 +18,13 @@ public class Student{
 		name = in.nextLine();
 		//Input in which Year a Student is
 		System.out.println("Choose your year");
-		System.out.println("1) First year\n2)Second year\n3)Third year\n4)Fourth year");
+		System.out.println("1)First year\n2)Second year\n3)Third year\n4)Fourth year");
 		year = in.nextInt();
 		// method create ID called
 		createID();
 		// printing the information taken and genrated
 		System.out.println("Name: " + name + "\nYear: " + year + "\nStudentID: " + StudentID);
+		enrool();
 	}
         private void createID() {
 
@@ -34,7 +35,7 @@ public class Student{
 	public void enrool() {
 		do {
 			Scanner in = new Scanner(System.in);
-			System.out.print("\n\nEnter the courses in which you wanna enroll (Q to quit): ");
+			System.out.print("Enter the courses in which you wanna enroll (Q to quit): ");
 			String Choice = in.nextLine();
 			if (!Choice.equals("Q")) {
 				Courses = Courses + "\n" + Choice;
@@ -47,9 +48,25 @@ public class Student{
 				break;
 			}
 		} while (1 != 0);
-		System.out.println("ENROLLED IN: " + Courses);
-		System.out.println("BALANCE: " + balance);
+		System.out.println("\nENROLLED IN: " + Courses+"\n");
+		// System.out.println("BALANCE: " + balance);
 
+	}
+	public void showdues() {
+		System.out.println("Tution Fees to be paid according to the number of courses you enrolled in: " + balance);
+	}
+	public void paydues() {
+		showdues();
+		Scanner in = new Scanner(System.in);
+		System.out.print("Enter the amount of payment: ");
+		int pay = in.nextInt();
+		if (pay == balance) {
+			System.out.println("Thanks for the payment no dues");
+			showdues();
+		} else {
+			balance = balance - pay;
+			System.out.println("sry you transaction incomplete due: "+balance);
+		}
 	}
 }
 
